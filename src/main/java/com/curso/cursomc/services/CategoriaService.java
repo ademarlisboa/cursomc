@@ -18,6 +18,13 @@ import com.curso.cursomc.services.exceptions.DataIntegrityException;
 import com.curso.cursomc.services.exceptions.ObjectNotFoundException;
 
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.curso.cursomc.domain.Categoria;
+import com.curso.cursomc.repositories.CategoriaRepository;
 
 @Service
 public class CategoriaService {

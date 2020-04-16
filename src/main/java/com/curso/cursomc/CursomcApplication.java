@@ -30,6 +30,7 @@ import com.curso.cursomc.repositories.ItemPedidoRepository;
 import com.curso.cursomc.repositories.PagamentoRepository;
 import com.curso.cursomc.repositories.PedidoRepository;
 import com.curso.cursomc.repositories.ProdutoRepository;
+import com.curso.cursomc.repositories.CategoriaRepository;
 
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner{
@@ -37,6 +38,7 @@ public class CursomcApplication implements CommandLineRunner{
 	@Autowired
 	private CategoriaRepository repo;
 	
+
 	@Autowired
 	private ProdutoRepository repoProd;
 	
@@ -61,6 +63,7 @@ public class CursomcApplication implements CommandLineRunner{
 	@Autowired
 	private ItemPedidoRepository repoItens;
 	
+
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
 		
@@ -158,9 +161,7 @@ public class CursomcApplication implements CommandLineRunner{
 		
 		
 		repoItens.saveAll(Arrays.asList(ip1,ip2,ip3));
-		
-		
-		
+		repo.saveAll(Arrays.asList(cat1,cat2));
 	}
 
 }

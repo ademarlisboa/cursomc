@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Produto implements Serializable {
@@ -45,15 +48,8 @@ public class Produto implements Serializable {
 	public void setItens(Set<ItemPedido> itens) {
 		this.itens = itens;
 	}
-	public Produto() {
-		
-	}
-	public Produto(Integer id, String nome, Double preco) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.preco = preco;
-	}
+
+
 	
 	@JsonIgnore
 	public List<Pedido> getPedidos(){
@@ -64,6 +60,10 @@ public class Produto implements Serializable {
 		return lista;
 	}
 	
+	public Produto() {
+		
+	}
+
 	
 	@Override
 	public int hashCode() {
@@ -90,7 +90,13 @@ public class Produto implements Serializable {
 		return true;
 	}
 
-	
+
+	public Produto(Integer id, String nome, Double preco) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.preco = preco;
+	}
 
 	public Integer getId() {
 		return id;
