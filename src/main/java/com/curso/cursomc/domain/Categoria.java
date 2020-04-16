@@ -1,6 +1,8 @@
 package com.curso.cursomc.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,13 +19,18 @@ public class Categoria implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	private List<Produto> produtos = new ArrayList<>();
+	
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	
+	public Categoria() {
+		
+	}
 	public Categoria(Integer id,String nome) {
 		super();
 		this.id=id;
@@ -68,6 +75,14 @@ public class Categoria implements Serializable {
 		} else if (!nome.equals(other.nome))
 			return false;
 		return true;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 	
 }
