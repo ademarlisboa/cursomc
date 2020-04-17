@@ -80,6 +80,7 @@ public class CursomcApplication implements CommandLineRunner{
 		
 		Categoria cat5 = new Categoria(null,"vestuário");
 		Categoria cat6 = new Categoria(null,"jardim");
+		Categoria cat7 = new Categoria(null,"bem estar");
 		
 		Produto p1 = new Produto(null,"computador",2000.00);
 		Produto p2 = new Produto(null,"impressora",800.00);
@@ -87,11 +88,44 @@ public class CursomcApplication implements CommandLineRunner{
 		
 		
 		
+		Produto p4 = new Produto(null,"mesa escritório",200.00);
+		Produto p5 = new Produto(null,"toalha",10.00);
+		Produto p6 = new Produto(null,"Shampoo",20.00);
+		
+		
+		Produto p7 = new Produto(null,"carro",200.00);
+		Produto p8 = new Produto(null,"ventilador",10.00);
+		Produto p9 = new Produto(null,"cafeteira",20.00);
+		
+		Produto p10 = new Produto(null,"pendente",20.00);
+		
+		Produto p11 = new Produto(null,"creme",20.00);
+		
 		cat1.getProdutos().addAll(Arrays.asList(p1,p2,p3));
-		cat2.getProdutos().addAll(Arrays.asList(p2));
-		p1.getCategorias().addAll(Arrays.asList(cat1));
-		p2.getCategorias().addAll(Arrays.asList(cat1,cat2));
-		p3.getCategorias().addAll(Arrays.asList(cat1));
+		cat2.getProdutos().addAll(Arrays.asList(p2,p4));
+		cat3.getProdutos().addAll(Arrays.asList(p5,p6));
+		cat4.getProdutos().addAll(Arrays.asList(p1,p2,p3,p7));
+		
+		cat5.getProdutos().addAll(Arrays.asList(p8));
+		
+		cat6.getProdutos().addAll(Arrays.asList(p9,p10));
+		
+		cat7.getProdutos().addAll(Arrays.asList(p11));
+		
+		p1.getCategorias().addAll(Arrays.asList(cat1,cat4));
+		p2.getCategorias().addAll(Arrays.asList(cat1,cat2,cat4));
+		p3.getCategorias().addAll(Arrays.asList(cat1,cat4));
+		
+		p4.getCategorias().addAll(Arrays.asList(cat2));
+		p5.getCategorias().addAll(Arrays.asList(cat3));
+		p6.getCategorias().addAll(Arrays.asList(cat3));
+		
+		p7.getCategorias().addAll(Arrays.asList(cat4));
+		p8.getCategorias().addAll(Arrays.asList(cat5));
+		p9.getCategorias().addAll(Arrays.asList(cat6)); 
+		
+		p10.getCategorias().addAll(Arrays.asList(cat6));
+		p11.getCategorias().addAll(Arrays.asList(cat7)); 
 		
 		Estado estado1 = new Estado(null,"Minas Gerais");
 		Estado estado2 = new Estado(null,"São Paulo");
@@ -106,8 +140,8 @@ public class CursomcApplication implements CommandLineRunner{
 		repoEstado.saveAll(Arrays.asList(estado1,estado2));
 		repoCidade.saveAll(Arrays.asList(c1,c2,c3));
 		
-		repo.saveAll(Arrays.asList(cat1,cat2,cat3,cat4,cat5,cat6));
-		repoProd.saveAll(Arrays.asList(p1,p2,p3));
+		repo.saveAll(Arrays.asList(cat1,cat2,cat3,cat4,cat5,cat6,cat7));
+		repoProd.saveAll(Arrays.asList(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11));
 		
 		Cliente cli1 = new Cliente(null,"Maria Silva","maria@gmail.com","36378912377",TipoCliente.PESSOAFISICA);
 		

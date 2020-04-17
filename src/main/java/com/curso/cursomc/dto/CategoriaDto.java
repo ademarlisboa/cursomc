@@ -5,6 +5,7 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import com.curso.cursomc.domain.Categoria;
+import com.curso.cursomc.domain.Produto;
 
 public class CategoriaDto {
 
@@ -33,4 +34,5 @@ public class CategoriaDto {
 	public CategoriaDto() {
 
 	}
+	
 }
