@@ -20,7 +20,7 @@ import com.curso.cursomc.services.ProdutoService;
 
 
 @RestController
-@RequestMapping(value="/Produtos")
+@RequestMapping(value="/produtos")
 public class ProdutoResource {
 	@Autowired
 	private ProdutoService service;
@@ -36,19 +36,19 @@ public class ProdutoResource {
 			
 		}
 	
-	@RequestMapping(value="/page", method = RequestMethod.GET)
-	public ResponseEntity<Page<ProdutoDto>> findPage(
-			@RequestParam(value="nome", defaultValue="") String nome,
-			@RequestParam(value="categorias", defaultValue="") String categorias,
-			@RequestParam(value="page", defaultValue="0") Integer page,
-			@RequestParam(value="linesPerPage", defaultValue="24") Integer linesPerPage, 
-			@RequestParam(value="orderBy", defaultValue="nome") String orderBy,
-			@RequestParam(value="direction", defaultValue="ASC") String direction)  {
-			List<Integer> ids = URL.decodeIntlist(categorias);
-			String nomeDecoded = URL.decodeParam(nome);
-			Page<Produto> list = service.search(nomeDecoded , ids, page, linesPerPage, orderBy, direction);
-			Page<ProdutoDto> listDto = list.map(obj -> new ProdutoDto(obj));
-			return ResponseEntity.ok().body(listDto);
-	}
+		@RequestMapping(method = RequestMethod.GET)
+		public ResponseEntity<Page<ProdutoDto>> findPage(
+				@RequestParam(value="nome", defaultValue="") String nome,
+				@RequestParam(value="categorias", defaultValue="") String categorias,
+				@RequestParam(value="page", defaultValue="0") Integer page,
+				@RequestParam(value="linesPerPage", defaultValue="24") Integer linesPerPage, 
+				@RequestParam(value="orderBy", defaultValue="nome") String orderBy,
+				@RequestParam(value="direction", defaultValue="ASC") String direction)  {
+				List<Integer> ids = URL.decodeIntlist(categorias);
+				String nomeDecoded = URL.decodeParam(nome);
+				Page<Produto> list = service.search(nomeDecoded , ids, page, linesPerPage, orderBy, direction);
+				Page<ProdutoDto> listDto = list.map(obj -> new ProdutoDto(obj));
+				return ResponseEntity.ok().body(listDto);
+		}
 		
 	}

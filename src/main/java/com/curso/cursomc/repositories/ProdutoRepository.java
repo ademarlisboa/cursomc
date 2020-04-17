@@ -14,9 +14,9 @@ import com.curso.cursomc.domain.Produto;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
-	@Query("Select distinct obj from Produto obj INNER JOIN obj.categorias cat "
+	@Query("SELECT DISTINCT obj FROM Produto obj INNER JOIN obj.categorias cat "
 			+ "WHERE obj.nome LIKE %:nome% AND "
-			+ "cat IN : categorias")
-	Page<Produto> search(@Param ("nome") String nome,@Param("categorias") List<Categoria> categorias, Pageable pageRequest);
+			+ "cat IN :cats")
+	Page<Produto> search(@Param ("nome") String nome,@Param("cats") List<Categoria> categorias, Pageable pageRequest);
 
 }

@@ -20,7 +20,7 @@ public class URL {
 		String [] vet  = S.split(",");
 		List<Integer> list = new ArrayList<>();
 		for (int i = 0; i < vet.length ;i++) {
-			Integer.parseInt(vet[i]);
+			list.add(Integer.parseInt(vet[i]));
 		}
 		return list;
 	}
