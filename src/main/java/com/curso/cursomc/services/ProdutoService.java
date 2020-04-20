@@ -28,8 +28,6 @@ public class ProdutoService {
 	public Produto buscar(Integer id) throws ObjectNotFoundException {
 		Optional<Produto> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! ID: " + id + " tipo: " + Produto.class.getName()));
-		
-		
 	}
 	
 	public Page<Produto> findPage(Integer page,Integer linesPerPage, String orderBy,String direction){

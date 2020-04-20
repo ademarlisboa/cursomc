@@ -25,6 +25,7 @@ public class Pedido implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	@JsonFormat(pattern="dd/MM/yyyy HH:mm")
 	private Date instante;
 	
@@ -34,20 +35,23 @@ public class Pedido implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
+	
 	@ManyToOne
 	@JoinColumn(name="endereco_entrega_id")
 	private Endereco enderecoDeEntrega;
 	
 	@OneToMany(mappedBy="id.pedido")
-	private Set<ItemPedido> itens = new HashSet<>();
+	private Set<ItemPedido> itens = new HashSet<ItemPedido>();
 	
-	public Endereco getEnderecoDeEntrega() {
-		return enderecoDeEntrega;
+	public double getValorTotal() {
+		double soma = 0.0;
+		for (ItemPedido ip : itens) {
+			soma = soma + ip.getSubtotal();
+		}
+		return soma;
 	}
-
-	public void setEnderecoDeEntrega(Endereco enderecoDeEntrega) {
-		this.enderecoDeEntrega = enderecoDeEntrega;
-	}
+	
+	
 	
 	public Set<ItemPedido> getItens() {
 		return itens;
@@ -57,17 +61,24 @@ public class Pedido implements Serializable {
 		this.itens = itens;
 	}
 
+	
+	
+	public Endereco getEnderecoDeEntrega() {
+		return enderecoDeEntrega;
+	}
+
+	public void setEnderecoDeEntrega(Endereco enderecoDeEntrega) {
+		this.enderecoDeEntrega = enderecoDeEntrega;
+	}
+	
+
+	
+	
+
 	public Pedido() {
 		
 	}
-	
-	public double getValorTotal() {
-		double soma = 0.0;
-		for (ItemPedido ip : itens) {
-			soma = soma + ip.getSubtotal();
-		}
-		return soma;
-	}
+
 	
 	@Override
 	public int hashCode() {
