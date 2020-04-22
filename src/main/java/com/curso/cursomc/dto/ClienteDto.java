@@ -28,7 +28,7 @@ public class ClienteDto {
 	public ClienteDto(Integer id,
 			@NotEmpty(message = "Preenchimento obrigatório") @Length(min = 5, max = 120, message = "O tamanho deve ser entre 5 e 120 caracteres") String nome,
 			@NotEmpty(message = "Preenchimento obrigatório") @Email(message = "email inválido") String email,
-			@NotEmpty(message = "Preenchimento obrigatório") String cpfouCnpj, Integer tipo) {
+			@NotEmpty(message = "Preenchimento obrigatório") String cpfouCnpj, Integer tipo, String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;

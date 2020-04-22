@@ -36,7 +36,15 @@ public class ClienteNewDto {
 	private String telefone1;
 	private String telefone2;
 	private String telefone3;
+	@NotEmpty(message="Preenchimento obrigatório")
+	private String senha;
 	
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 	private Integer cidadeId;
 	
 	public String getCpfouCnpj() {
@@ -112,6 +120,7 @@ public class ClienteNewDto {
 		id = obj.getId();
 		nome = obj.getNome();
 		email  = obj.getEmail();
+		senha = obj.getSenha();
 		
 	}
 	
