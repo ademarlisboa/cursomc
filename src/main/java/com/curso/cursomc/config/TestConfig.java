@@ -14,7 +14,7 @@ import com.curso.cursomc.services.MockEmailService;
 import com.curso.cursomc.services.SmtpEmailService;
 
 @Configuration
-@Profile("test")
+@Profile("prod")
 public class TestConfig {
 	
 	@Autowired

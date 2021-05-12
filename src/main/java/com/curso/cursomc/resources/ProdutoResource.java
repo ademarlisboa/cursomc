@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.cursomc.domain.Produto;
-import com.curso.cursomc.dto.CategoriaDto;
 import com.curso.cursomc.dto.ProdutoDto;
 import com.curso.cursomc.resources.utils.URL;
 import com.curso.cursomc.services.ProdutoService;
